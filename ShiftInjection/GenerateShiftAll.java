@@ -140,7 +140,7 @@ public class GenerateShiftAll
 					deploymentbeforeshift[f]=backupTstOrg[f].clone();
 				}
 				
-				 //Inject linear shift for all attributes
+				 //Inject linear shift to all attributes
 				biasType = "m2.bias.NewLinearShift";
 				shift = (Bias)(Class.forName(biasType).newInstance());
 				shift.setValue(phi,gama,degreeShift);
