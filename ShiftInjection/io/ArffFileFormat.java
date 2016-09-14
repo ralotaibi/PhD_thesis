@@ -6,10 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import weka.ShiftInjection.basic.Dataset;
 
-/**
- *
- * @author traeder
- */
 public class ArffFileFormat extends FileFormat
 {
 

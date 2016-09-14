@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package weka.ShiftInjection.io;
 
@@ -18,10 +14,7 @@ import weka.ShiftInjection.basic.Dataset;
 import weka.ShiftInjection.basic.NominalAttribute;
 import weka.ShiftInjection.basic.NumericAttribute;
 
-/**
- * DatasetReader for reading WEKA ARFF format datasets.
- * @author traeder
- */
+
 public class ArffReader extends DatasetReader {
     
     private BufferedReader reader;

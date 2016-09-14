@@ -4,13 +4,7 @@ import java.util.Arrays;
 import weka.ShiftInjection.basic.Dataset;
 import weka.ShiftInjection.basic.Instance;
 
-/**
- * Bias subclass for introducing non-linear shift into a single feature.  
- * This implementation models a shift in the distribution of a feature by 
- * a square amount of this feature. It shifts the value of that feature, 
- * for each instance. 
- * @author traeder
- */
+
 
 public class PicewiseNonLinearShift extends Bias
 {

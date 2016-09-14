@@ -1,16 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package weka.ShiftInjection.basic;
 
-/**
- * Class to hold a single instance of a dataset.  Each instance is composed
- * of a set of attributes and their values.
- * 
- * @author traeder
- */
+
 public class Instance 
 {
     

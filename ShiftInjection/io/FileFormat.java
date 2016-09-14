@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package weka.ShiftInjection.io;
 
@@ -13,10 +10,6 @@ import java.util.Collection;
 import java.util.TreeMap;
 import weka.ShiftInjection.basic.Dataset;
 
-/**
- *
- * @author traeder
- */
 public abstract class FileFormat {
     
     private static final String[] defaultFormats = {"m2.io.C45FileFormat", "m2.io.ArffFileFormat"};

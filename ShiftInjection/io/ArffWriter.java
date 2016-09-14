@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package weka.ShiftInjection.io;
 
@@ -14,10 +11,7 @@ import weka.ShiftInjection.basic.Attribute;
 import java.io.PrintWriter;
 import java.io.Writer;
 
-/**
- * DatasetWriter for writing a Dataset to a Writer in ARFF format.
- * @author traeder
- */
+
 public class ArffWriter extends DatasetWriter{
     
     private PrintWriter writer;

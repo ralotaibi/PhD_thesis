@@ -1,17 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package weka.ShiftInjection.basic;
 
 import java.util.Comparator;
 
-/**
- * Comparator subclass used for sorting a dataset by an attribute.
- * 
- * @author traeder
- */
+
 public class InstanceAttributeComparator implements Comparator {
     
     private int index;

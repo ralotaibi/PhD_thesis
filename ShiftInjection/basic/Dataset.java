@@ -6,12 +6,7 @@ import java.util.Collections;
 import java.util.Random;
 import weka.ShiftInjection.basic.myRandomizer;
 
-/**
- * Representation of a dataset as a set of instances each with a set of
- * attributes.  This is the basic class on which all of our methods for handling
- * data operate.
- * @author traeder
- */
+
 public class Dataset 
 {
     

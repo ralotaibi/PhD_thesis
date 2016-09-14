@@ -1,15 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package weka.ShiftInjection.basic;
 
-/**
- * Attribute subclass for holding nominal attributes.
- * 
- * @author traeder
- */
+
 public class NominalAttribute extends Attribute {
     
     public NominalAttribute(String name) { this.name = name; type = AttributeType.NOMINAL; }

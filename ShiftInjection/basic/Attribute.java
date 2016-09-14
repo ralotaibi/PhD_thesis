@@ -1,19 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package weka.ShiftInjection.basic;
 
-/**
- * Abstract class representing the value of a single attribute of an instance
- * and its value.
- *
- * @see NumericAttribute
- * @see NominalAttribute
- * 
- * @author traeder
- */
 public abstract class Attribute {
     
     /**

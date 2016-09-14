@@ -2,13 +2,6 @@ package weka.ShiftInjection.bias;
 
 import weka.ShiftInjection.basic.*;
 
-/**
- * Bias subclass for introducing non-linear shift into a single feature.  
- * This implementation models a shift in the distribution of a feature by 
- * a square amount of this feature. It shifts the value of that feature, 
- * for each instance. 
- * @author traeder
- */
 
 public class CubeNonLinearShift extends Bias
 {

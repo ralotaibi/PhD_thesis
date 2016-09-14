@@ -1,23 +1,24 @@
 
-package weka.ShiftInjection;
+package m2;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import m2.basic.Dataset;
+import m2.basic.Utils;
+import m2.basic.Utils.*;
 import java.util.Random;
-import weka.ShiftInjection.basic.Dataset;
-import weka.ShiftInjection.basic.Utils;
-import weka.ShiftInjection.basic.Utils.*;
-import weka.ShiftInjection.basic.myRandomizer;
-import weka.ShiftInjection.bias.Bias;
-import weka.ShiftInjection.io.*;
+import m2.basic.myRandomizer;
+import m2.bias.Bias;
+import m2.io.*;
 
 /*
   * This Method generate shift for all numerical attributes while keeping nominal.
-  * It also select subset of the attributes (1/3) to be shifted. 
   * 10 degrees of linear shift which change, the mean, the variance, or both.
   * It generates non linear shift using the cube and then transform back to the same distribution.
+  * Mixture shift is done by selecting subset of the attributes (1/3) to be linearly shifted, (1/3) non linear shift 
+  * and the remaining (1/3) unshifted. 
  */
 
 public class GenerateShiftAll 
@@ -46,8 +47,6 @@ public class GenerateShiftAll
 			args2[1] = "/Users/ra12404/Desktop/weka-3-7-10/data/Datashift/"+myDataset+".arff";
 			args2[2] = "-folder";
 			args2[3] = "/Users/ra12404/Desktop/weka-3-7-10/data/Datashift/"+myDataset+"/run"+(run+1);
-			//args2[4] = "-output";
-			//args2[5] = "/Users/ra12404/Desktop/weka-3-7-10/data/DatashiftAll25_3/"+myDataset+".csv";
 
 			args = args2;
 
@@ -124,11 +123,14 @@ public class GenerateShiftAll
 				{
 					phi=-1;gama=1;degreeShift = 9;//mean and variance
 				}
-				else 
+				else  if(j==10)
 				{
 					phi=1;gama=-1;degreeShift = 10;//mean and variance
-				}				
-				//degreeShift=11;//mixture shift
+				}
+				else
+				{
+					phi=0;gama=0;degreeShift=11;//mixture shift
+				}
 				
 				System.out.println("j="+j+" phi="+phi+" gama="+gama);
 				
@@ -139,7 +141,7 @@ public class GenerateShiftAll
 				}
 				
 				 //Inject linear shift for all attributes
-				biasType = "weka.ShiftInjection.bias.NewLinearShift";
+				biasType = "m2.bias.NewLinearShift";
 				shift = (Bias)(Class.forName(biasType).newInstance());
 				shift.setValue(phi,gama,degreeShift);
 				
@@ -184,7 +186,7 @@ public class GenerateShiftAll
 			}//end linear loop options
 		
 			    //Inject non-linear shift for all attributes
-				biasType = "weka.ShiftInjection.bias.NewNonLinearShift";
+				biasType = "m2.bias.NewNonLinearShift";
 				shift = (Bias)(Class.forName(biasType).newInstance());				
 				
 				for (int f=0; f<numFolds; f++)
@@ -248,7 +250,7 @@ public class GenerateShiftAll
 				  }
 				}
 				Arrays.sort(RandomAtt);
-				biasType = "weka.ShiftInjection.bias.NewLinearShift";
+				biasType = "m2.bias.NewLinearShift";
 				shift = (Bias)(Class.forName(biasType).newInstance());
 				
                 //Inject linear shift for some attributes
@@ -286,7 +288,7 @@ public class GenerateShiftAll
 					   }
 				}
 				
-				biasType = "weka.ShiftInjection.bias.NewNonLinearShift";
+				biasType = "m2.bias.NewNonLinearShift";
 				shift = (Bias)(Class.forName(biasType).newInstance());				
 				
 				for(int k=RandomAtt.length/2;k<RandomAtt.length;k++)
@@ -303,14 +305,14 @@ public class GenerateShiftAll
 				//save Data sets
 				for (int f=0; f<numFolds;f++)
 				{
-					String trFileName = folder+"/LinearSh_"+11+"_tr"+(f+1)+".arff";
+					String trFileName = folder+"/LinearSh_11"+"_tr"+(f+1)+".arff";
 					Dataset trDataset = training[f].clone();
 		            PrintWriter outer= new PrintWriter(new BufferedWriter(new FileWriter(trFileName)));
 		            ArffWriter arff=new ArffWriter(trDataset,outer);
 					arff.write();
 		            outer.close();
 		            
-					String tstFileName = folder+"/LinearSh_"+11+"_deploy"+(f+1)+".arff";
+					String tstFileName = folder+"/LinearSh_11"+"_deploy"+(f+1)+".arff";
 		            outer= new PrintWriter(new BufferedWriter(new FileWriter(tstFileName)));
 					Dataset tsDataset = deployment[f].clone();
 				    arff=new ArffWriter(tsDataset,outer);

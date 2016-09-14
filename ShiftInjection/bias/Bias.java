@@ -5,14 +5,6 @@ import weka.ShiftInjection.basic.Dataset;
 import weka.ShiftInjection.basic.Utils;
 
 
-/**
- * Abstract class representing any type of bias that can be introduced into a
- * dataset.  The generic Bias can take a single parameter, indicating the
- * severity of the bias, whose exact meaning varies depending on the type of
- * bias.
- * 
- * @author traeder
- */
 public abstract class Bias
 {
 	protected static final String DEGREE = "DEGREE";
