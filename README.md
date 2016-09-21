@@ -11,3 +11,5 @@ Codes are writting in Java.
 LaCova, LaCovaC and ML-C4.5 were implemented in Java on the Meka platform (version 1.7.5). 
 
 The Versatile Model was implemented in Java on the Weka platform (version 3.7.10). 
+
+Threshold choice methods were implemented in Java on the Meka platform (version 1.7.5). 
