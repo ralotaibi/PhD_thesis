@@ -2,7 +2,7 @@
 
 Repository for code from the experiments of my PhD thesis: "Learning Versatile Decision Trees Towards Context-Awareness and Multi-label Classification". 
 
-University of Bristol, Computer Science, Intelligent System Lab.
+University of Bristol, Computer Science, Intelligent Systems Lab.
 
 # Dependencies
 
